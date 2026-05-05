@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240">
+  <defs>
+    <linearGradient id="markPink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF6FA8"/>
+      <stop offset="100%" stop-color="#E60057"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Circular mark with flamingo silhouette + click cursor -->
+  <g transform="translate(50,30)">
+    <!-- Outer ring -->
+    <circle cx="90" cy="90" r="82" fill="#0A0E1A"/>
+    <circle cx="90" cy="90" r="82" fill="none" stroke="url(#markPink)" stroke-width="3"/>
+    <!-- Flamingo silhouette inside, abstracted -->
+    <path d="
+      M 95 38
+      C 108 38, 116 50, 110 60
+      C 106 66, 100 66, 96 62
+      C 88 56, 82 64, 88 78
+      C 96 96, 108 110, 102 130
+      C 96 148, 75 152, 60 142
+      C 50 134, 50 122, 60 116
+      L 76 108
+      L 80 100
+      L 78 124
+      L 78 148
+    " stroke="url(#markPink)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Beak — sharp accent -->
+    <path d="M 110 42 L 128 48 L 116 56 Z" fill="url(#markPink)"/>
+    <!-- Click cursor symbol — bottom right corner -->
+    <path d="M 130 130 L 154 138 L 144 148 L 152 162 L 142 168 L 134 154 L 124 158 Z"
+          fill="url(#markPink)" stroke="#0A0E1A" stroke-width="1.5"/>
+  </g>
+
+  <!-- Wordmark stacked tight -->
+  <g transform="translate(225,108)">
+    <text font-family="'Inter', system-ui, sans-serif"
+          font-weight="900"
+          font-size="78"
+          letter-spacing="-2.4"
+          fill="#0A0E1A">CLICK</text>
+    <text y="74"
+          font-family="'Inter', system-ui, sans-serif"
+          font-weight="900"
+          font-size="78"
+          letter-spacing="-2.4"
+          fill="url(#markPink)">MINGO</text>
+    <line x1="0" y1="92" x2="240" y2="92" stroke="url(#markPink)" stroke-width="2"/>
+    <text y="116"
+          font-family="'Inter', system-ui, sans-serif"
+          font-weight="600"
+          font-size="13"
+          letter-spacing="5"
+          fill="#0A0E1A">DIGITAL · BUILT · BY · CLOSERS</text>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240">
+  <defs>
+    <linearGradient id="pink1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF6FA8"/>
+      <stop offset="100%" stop-color="#FF1F6B"/>
+    </linearGradient>
+    <linearGradient id="ink1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0A0E1A"/>
+      <stop offset="100%" stop-color="#1F2336"/>
+    </linearGradient>
+  </defs>
+  <!-- Geometric flamingo: head curve + body wedge + single leg -->
+  <g transform="translate(40,30)">
+    <!-- Body wedge -->
+    <path d="M 30 90 L 110 60 L 145 90 L 105 130 Z" fill="url(#pink1)"/>
+    <!-- Neck — long S-curve -->
+    <path d="M 110 60 C 90 30, 70 10, 95 0 C 115 -8, 130 10, 125 35 L 115 65"
+          stroke="url(#pink1)" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <!-- Head -->
+    <circle cx="118" cy="30" r="11" fill="url(#pink1)"/>
+    <!-- Beak -->
+    <path d="M 118 30 L 142 38 L 130 44 Z" fill="#0A0E1A"/>
+    <!-- Eye dot -->
+    <circle cx="115" cy="27" r="1.6" fill="#0A0E1A"/>
+    <!-- Single leg — the "click" — geometric stroke -->
+    <line x1="80" y1="125" x2="76" y2="180" stroke="url(#pink1)" stroke-width="6" stroke-linecap="round"/>
+    <line x1="76" y1="180" x2="92" y2="180" stroke="url(#pink1)" stroke-width="5" stroke-linecap="round"/>
+    <!-- Tucked-up leg silhouette hint -->
+    <path d="M 95 125 L 100 140 L 88 145" stroke="url(#pink1)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.55"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(225,148)">
+    <text font-family="'Inter', system-ui, sans-serif"
+          font-weight="900"
+          font-size="92"
+          letter-spacing="-3"
+          fill="url(#ink1)">Click<tspan fill="url(#pink1)">Mingo</tspan></text>
+    <text x="6" y="40"
+          font-family="'Inter', system-ui, sans-serif"
+          font-weight="600"
+          font-size="14"
+          letter-spacing="6"
+          fill="#FF1F6B">STAND OUT. GET CLICKS. CLOSE DEALS.</text>
+  </g>
+</svg>
