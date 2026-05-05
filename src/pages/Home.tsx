@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from "motion/react"
 import { useRef } from "react"
 import Reveal from "../components/Reveal"
 import CountUp from "../components/CountUp"
-import MeshBackground from "../components/MeshBackground"
 import Marquee from "../components/Marquee"
 import { BUSINESS, SERVICES, CASE_STUDIES, STATS, PROCESS, TECH_LOGOS, TESTIMONIALS } from "../lib/data"
 
@@ -15,27 +14,32 @@ export default function Home() {
 
   return (
     <>
-      {/* HERO ─────────────────────────────────────── */}
-      <section ref={heroRef} className="relative min-h-[100svh] text-[var(--color-paper)] overflow-hidden flex items-center pt-24">
-        <MeshBackground />
+      {/* HERO — Remotion-rendered video background ───── */}
+      <section ref={heroRef} className="relative min-h-[100svh] text-[var(--color-paper)] overflow-hidden flex items-center pt-24 bg-[var(--color-ink)]">
+        {/* Video background — autoplay/muted/loop */}
+        <video
+          src="./hero.mp4"
+          poster="./hero-poster.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          style={{ filter: "brightness(0.85)" }}
+        />
+        {/* Dark overlay for legibility of foreground UI */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-ink)]/30 via-transparent to-[var(--color-ink)]/80 pointer-events-none" />
 
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 mx-auto w-full max-w-[1500px] px-6 md:px-10 py-16 md:py-24">
-          {/* Top row: location + status */}
-          <div className="flex items-center justify-between flex-wrap gap-4 mb-10 md:mb-16">
+        {/* Foreground UI — minimal because the video carries the hero message */}
+        <motion.div style={{ opacity: heroOpacity }} className="relative z-10 mx-auto w-full max-w-[1500px] px-6 md:px-10 flex flex-col h-[100svh] py-24">
+          {/* Top row */}
+          <div className="flex items-center justify-between flex-wrap gap-4">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="label flex items-center gap-3"
-            >
-              <span className="block w-10 h-px bg-[var(--color-pink)]" />
-              {BUSINESS.city} · est. 2026
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="hidden md:flex items-center gap-2 label-chrome"
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="hidden md:flex items-center gap-2 label-chrome ml-auto"
             >
               <span className="relative flex w-2 h-2">
                 <span className="animate-ping absolute inline-flex w-full h-full rounded-full bg-[var(--color-pink)] opacity-75" />
@@ -45,78 +49,28 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* MASSIVE kinetic headline */}
-          <div className="font-display tracking-[-0.04em] leading-[0.85]">
-            <KineticLine delay={0.4}>
-              <span className="text-[clamp(3.5rem,11vw,12rem)]">We don't build</span>
-            </KineticLine>
-            <KineticLine delay={0.55}>
-              <span className="text-[clamp(3.5rem,11vw,12rem)] italic font-light">websites.</span>
-            </KineticLine>
-            <KineticLine delay={0.7}>
-              <span className="text-[clamp(3.5rem,11vw,12rem)]">We build</span>
-              <span className="inline-block w-3" />
-              <span className="text-[clamp(3.5rem,11vw,12rem)] pink-shimmer">revenue</span>
-            </KineticLine>
-            <KineticLine delay={0.85}>
-              <span className="text-[clamp(3.5rem,11vw,12rem)] pink-shimmer">engines.</span>
-              <Cursor />
-            </KineticLine>
-          </div>
+          {/* Spacer pushes CTAs to bottom */}
+          <div className="flex-1" />
 
-          <div className="mt-14 grid md:grid-cols-12 gap-10 items-end">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 1.2 }}
-              className="md:col-span-7"
-            >
-              <p className="text-lg md:text-2xl text-[var(--color-chrome)] font-light leading-relaxed max-w-2xl">
-                Sites, apps, marketing & integrations built by an operator who's actually <span className="pink-text font-medium">closed deals</span> — not a developer who watched a course on conversion.
+          {/* Bottom CTAs over video */}
+          <motion.div
+            style={{ y: heroY }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
+            className="grid md:grid-cols-12 gap-8 items-end"
+          >
+            <div className="md:col-span-7">
+              <p className="text-base md:text-xl text-[var(--color-paper)] font-light leading-relaxed max-w-xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]">
+                Built by an operator who's actually <span className="pink-text font-medium">closed deals</span> — not a developer who watched a course on conversion.
               </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 1.4 }}
-              className="md:col-span-5 flex flex-col sm:flex-row md:justify-end gap-4"
-            >
+            </div>
+            <div className="md:col-span-5 flex flex-col sm:flex-row md:justify-end gap-4">
               <Link to="/contact" className="btn-pink">
                 Start a project
                 <span>→</span>
               </Link>
               <Link to="/work" className="btn-ghost">See the work</Link>
-            </motion.div>
-          </div>
-
-          {/* Floating award/stat badge — adds polish */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -6 }}
-            animate={{ opacity: 1, scale: 1, rotate: -6 }}
-            transition={{ duration: 1.2, delay: 1.8, ease: [0.34, 1.56, 0.64, 1] }}
-            className="hidden md:block absolute right-10 top-32 lg:right-20 lg:top-40"
-          >
-            <div className="relative w-40 h-40 lg:w-48 lg:h-48">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0"
-              >
-                <svg viewBox="0 0 200 200" className="w-full h-full">
-                  <defs>
-                    <path id="circle" d="M 100,100 m -80,0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
-                  </defs>
-                  <text className="font-mono text-[14px] tracking-[0.18em] fill-[var(--color-pink-light)] uppercase" letterSpacing="2">
-                    <textPath href="#circle">STAND OUT · GET CLICKS · CLOSE DEALS · </textPath>
-                  </text>
-                </svg>
-              </motion.div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="font-display font-extrabold text-4xl lg:text-5xl pink-text leading-none">100%</div>
-                  <div className="font-mono text-[10px] tracking-[0.2em] text-[var(--color-chrome)] mt-1">CUSTOM<br/>NO TEMPLATES</div>
-                </div>
-              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -359,29 +313,6 @@ export default function Home() {
 }
 
 // ─── Helpers ────────────────────────────────────
-
-function KineticLine({ children, delay }: { children: React.ReactNode; delay: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 60, skewY: 4 }}
-      animate={{ opacity: 1, y: 0, skewY: 0 }}
-      transition={{ duration: 1.1, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="overflow-hidden flex items-baseline flex-wrap"
-    >
-      {children}
-    </motion.div>
-  )
-}
-
-function Cursor() {
-  return (
-    <motion.span
-      animate={{ opacity: [1, 0, 1] }}
-      transition={{ duration: 1.1, repeat: Infinity, ease: "linear" }}
-      className="inline-block ml-3 w-3 md:w-5 lg:w-6 h-[0.85em] bg-[var(--color-pink)] align-baseline"
-    />
-  )
-}
 
 function BentoCard({
   service,
