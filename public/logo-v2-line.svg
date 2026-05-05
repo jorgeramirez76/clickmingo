@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240">
   <!-- Continuous-line flamingo on the left -->
-  <g transform="translate(50,30)" fill="none" stroke="#FF1F6B" stroke-width="5"
+  <g transform="translate(50,30)" fill="none" stroke="#1E5FFF" stroke-width="5"
      stroke-linecap="round" stroke-linejoin="round">
     <!-- one continuous-feel path: head, neck, body, leg -->
     <path d="
@@ -29,9 +29,9 @@
           font-weight="800"
           font-size="86"
           letter-spacing="-2.6"
-          fill="#0A0E1A">Click<tspan fill="#FF1F6B">Mingo</tspan></text>
+          fill="#0A0E1A">Click<tspan fill="#1E5FFF">Mingo</tspan></text>
     <!-- Hairline pink rule under wordmark -->
-    <line x1="6" y1="22" x2="200" y2="22" stroke="#FF1F6B" stroke-width="2"/>
+    <line x1="6" y1="22" x2="200" y2="22" stroke="#1E5FFF" stroke-width="2"/>
     <text x="6" y="46"
           font-family="'Inter', system-ui, sans-serif"
           font-weight="500"

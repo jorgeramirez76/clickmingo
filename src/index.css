@@ -10,10 +10,10 @@
   --color-paper: #fafaf7;
   --color-paper-2: #f3f2ec;
 
-  --color-pink: #ff1f6b;
-  --color-pink-light: #ff6fa8;
-  --color-pink-deep: #c50049;
-  --color-pink-glow: rgba(255, 31, 107, 0.35);
+  --color-pink: #1E5FFF;
+  --color-pink-light: #5BA8FF;
+  --color-pink-deep: #0A2DBC;
+  --color-pink-glow: rgba(30, 95, 255, 0.35);
 
   --color-chrome: #d8dde8;
   --color-mute: #6e7587;
@@ -66,8 +66,8 @@
   .grain-ink {
     background-color: var(--color-ink);
     background-image:
-      radial-gradient(ellipse at 20% 0%, rgba(255, 31, 107, 0.18) 0, transparent 55%),
-      radial-gradient(ellipse at 100% 100%, rgba(255, 31, 107, 0.10) 0, transparent 50%),
+      radial-gradient(ellipse at 20% 0%, rgba(30, 95, 255, 0.18) 0, transparent 55%),
+      radial-gradient(ellipse at 100% 100%, rgba(30, 95, 255, 0.10) 0, transparent 50%),
       url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
@@ -126,11 +126,11 @@
     color: var(--color-ink);
     font-family: var(--font-mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.78rem;
     transition: all 350ms var(--ease-snap);
-    box-shadow: 0 8px 24px rgba(255, 31, 107, 0.3);
+    box-shadow: 0 8px 24px rgba(30, 95, 255, 0.3);
   }
   .btn-pink:hover {
     background: var(--color-ink); color: var(--color-pink);
-    box-shadow: 0 12px 32px rgba(255, 31, 107, 0.55);
+    box-shadow: 0 12px 32px rgba(30, 95, 255, 0.55);
     transform: translateY(-2px);
   }
 
